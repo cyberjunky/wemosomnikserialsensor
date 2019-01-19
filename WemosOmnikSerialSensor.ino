@@ -214,7 +214,7 @@ void sendOmniksolDataOffline() {
 
   dataJson[F("ID")]              = omniksol.ID;
   dataJson[F("Status")]          = "Offline";
-  dataJson[F("PowerAC")]         = "";
+  dataJson[F("PowerAC")]         = 0;
   dataJson[F("VoltageAC")]       = "";
   dataJson[F("CurrentAC")]       = "";
   dataJson[F("FrequencyAC")]     = "";
@@ -317,7 +317,7 @@ void logSerial() {
     
     Serial.print(F("Inverter Temperature: "));
     Serial.print(float (omniksol.Temperature) / 10);
-    Serial.println(F(" °C"));
+    Serial.println(F(" Â°C"));
 
     Serial.print(F("Inverter Energy Today: "));
     Serial.print(float (omniksol.EnergyToday) / 100);
@@ -336,7 +336,7 @@ void logSerial() {
 
 void setup(void) {
   
-  Serial.begin(115200);
+  Serial.begin(9600);
   
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   display.display();
